@@ -5,7 +5,7 @@ import{
   Route
 } from "react-router-dom";
 import './App.css';
-import restaurant from './pages/options';
+import Restaurant from './pages/options';
 import Home from './pages/home';
 
 
@@ -13,11 +13,11 @@ import Home from './pages/home';
 const router = createBrowserRouter([
   {
   path: "/",
-  element: <Home />,
+  element: <Home />
   },
   {
-    path:"/dance/:id",
-    element: <restaurant />
+    path:"/restaurant/:id",
+    element: <Restaurant />
   },
 ]);
 
