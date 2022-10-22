@@ -5,7 +5,8 @@ import { SPOONACULAR_API_KEY } from '../API_KEYS';
 
 function Home(){
     const [foodData, setFoodData] = useState([]);
-    const URL = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${SPOONACULAR_API_KEY}`
+    //change pasta eventually to a variable (buttons maybe..?)
+    const URL = `https://api.spoonacular.com/recipes/complexSearch?query=pasta&apiKey=${SPOONACULAR_API_KEY}&instructionsRequired=true&addRecipeInformation=true`
     useEffect(()=>{
         axios
             .get(URL)
@@ -23,6 +24,7 @@ function Home(){
     return (
         <div>
             <h1>Recipes for Food</h1>
+            <p>{URL}</p>
         </div>
     )
  }
