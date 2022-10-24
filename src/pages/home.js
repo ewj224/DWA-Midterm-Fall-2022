@@ -38,7 +38,7 @@ function Home(){
             });
     }, []);
 
-    const { recipeName, recipeInstructions, recipeTime } = useMemo(()=>{
+    const { recipeName, recipeInstructions, recipeTime, recipePrice } = useMemo(()=>{
         const foodMain = foodData.results && foodData.results[0] || {}
         const foodMain2 = foodMain.analyzedInstructions && foodMain.analyzedInstructions[0] || {}
         //steps[0] will be first set of directions
@@ -46,7 +46,8 @@ function Home(){
         return{
             recipeName:foodMain.title,
             recipeInstructions:foodMain3.step,
-            recipeTime: foodMain.readyInMinutes
+            recipeTime: foodMain.readyInMinutes,
+            recipePrice:foodMain.pricing
                
         }
     }, [foodData])
@@ -85,9 +86,13 @@ function Home(){
     return (
         <div>
             <h1>Recipes for Food</h1>
-            <h2>{recipeName}</h2>
+            <h2>recipeName</h2>
+            <p>recipeInstructions</p>
+            <p>recipeTime</p>
+            <p>recipeCost</p>
+            {/* <h2>{recipeName}</h2>
             <p>{recipeInstructions}</p>
-            <p>{recipeTime}</p>
+            <p>{recipeTime}</p> */}
             <p>{URL}</p>
             <br></br>
             <h1>Restaurant Alternatives</h1>
