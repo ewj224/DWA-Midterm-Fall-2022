@@ -1,3 +1,52 @@
-.App {
-    
+.generalCard{
+    display: flex;
+}
+
+.foodCard{
+    background: #e9edc9;
+    border: 5px solid #E0A96D;
+    color: #201E20;
+    height: 300px;
+    width: 48%;
+    margin: auto;
+    max-width: 600px;
+    position: relative;
+    margin-left: 130px;
+    margin-top: 150px;
+
+}
+
+.restaurantCard{
+    background: #faedcd;
+    border: 5px solid #E0A96D;
+    color: #201E20;
+    height: 300px;
+    width: 48%;
+    max-width: 600px;
+    margin: auto;
+    margin-right: 130px;
+    margin-top: 150px;
+}
+
+
+.boxRestaurantCard, .boxFoodCard{
+    padding: 0;
+    background-color:#fefae0;
+    margin: 20px;
+    padding: 20px;
+    height: 220px
+}
+
+.recipeName{
+   max-width: 250px;
+}
+
+.recipeTime{
+    margin-top:-30px;
+}
+
+img{
+    position: relative;
+    margin-left: 250px;
+    margin-top: -130px;
 }

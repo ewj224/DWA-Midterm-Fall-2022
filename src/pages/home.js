@@ -1,13 +1,14 @@
 import React, { useEffect, useMemo, useState } from "react";
 import axios from "axios";
-import foodCard from '../components/foodCard';
 import { SPOONACULAR_API_KEY } from '../API_KEYS';
+import FoodCard from "../components/FoodCard";
+import RestaurantCard from "../components/RestaurantCard";
 
 function Home(){
     const [foodData, setFoodData] = useState([]);
     const [restaurantData, setRestaurantData] = useState([]);
     //change pasta eventually to a variable (buttons maybe..?)
-    const URL = `https://api.spoonacular.com/recipes/complexSearch?query=pasta-and-seafood&apiKey=${SPOONACULAR_API_KEY}&instructionsRequired=true&addRecipeInformation=true`
+    const URL = `https://api.spoonacular.com/recipes/complexSearch?query=blueberry-pancake&apiKey=${SPOONACULAR_API_KEY}&instructionsRequired=true&addRecipeInformation=true`
     const URL2 = `https://nyc-restaurant-api.herokuapp.com/nyc-restaurants`
 
     useEffect(()=>{
@@ -16,7 +17,7 @@ function Home(){
             .then((response)=>{
                 setFoodData(response.data);
                 //DELETE LATER
-                // console.log({response});
+                console.log({response});
             })
             .catch((error)=>{
                 console.warn("error", error);
@@ -38,20 +39,22 @@ function Home(){
             });
     }, []);
 
-    const { recipeName, recipeInstructions, recipeTime, recipePrice } = useMemo(()=>{
+    //recipe display information
+    const { recipeName, recipeInstructions, recipeTime, recipePrice, recipeImage } = useMemo(()=>{
         const foodMain = foodData.results && foodData.results[0] || {}
         const foodMain2 = foodMain.analyzedInstructions && foodMain.analyzedInstructions[0] || {}
         //steps[0] will be first set of directions
         const foodMain3 = foodMain2.steps && foodMain2.steps[0] || {}
         return{
             recipeName:foodMain.title,
+            recipeImage:foodMain.image,
             recipeInstructions:foodMain3.step,
             recipeTime: foodMain.readyInMinutes,
-            recipePrice:foodMain.pricing
-               
+            recipePrice:Math.round(foodMain.pricePerServing)/100
         }
     }, [foodData])
 
+    //used to display restaurant information
     const { restaurantDish, restaurantPricing, restaurantPlace, restaurantWeb } = useMemo(()=>{
         const restaurantMain = restaurantData && restaurantData[0] || {}
         return{
@@ -63,6 +66,7 @@ function Home(){
         }
     }, [restaurantData])
 
+    //restaurant address
     const { restaurantNumber, restaurantStreet, restaurantCity, restaurantState, restaurantZipCode } = useMemo(()=>{
         const restaurantMain2 = restaurantData && restaurantData[0] || {}
         const restaurantMain3 = restaurantMain2.address && restaurantMain2.address[0] || {}
@@ -82,26 +86,23 @@ function Home(){
     + restaurantState + " "
     + restaurantZipCode;
 
-    console.log({restaurantPlace})
     return (
-        <div>
-            <h1>Recipes for Food</h1>
-            <h2>recipeName</h2>
-            <p>recipeInstructions</p>
-            <p>recipeTime</p>
-            <p>recipeCost</p>
-            {/* <h2>{recipeName}</h2>
-            <p>{recipeInstructions}</p>
-            <p>{recipeTime}</p> */}
-            <p>{URL}</p>
-            <br></br>
-            <h1>Restaurant Alternatives</h1>
-            <p>{URL2}</p>
-            <p>{restaurantPlace}</p>
-            <p>{restaurantDish}</p>
-            <p>{restaurantPricing}</p>
-            <p>{restaurantWeb}</p>
-            <p>{address}</p>
+        <div className="generalCard">
+            <FoodCard
+            recipeName = {recipeName}
+            recipeImage = {recipeImage}
+            // recipeInstructions = {recipeInstructions}
+            recipeTime = {recipeTime}
+            recipePrice = {recipePrice}
+            />
+
+            <RestaurantCard
+            restaurantDish = {restaurantDish}
+            restaurantPricing = {restaurantPricing}
+            restaurantPlace = {restaurantPlace}
+            restaurantWeb = {restaurantWeb}
+            address = {address}
+            />
         </div>
     )
 
