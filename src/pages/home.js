@@ -12,12 +12,13 @@ function Home(){
     const [food, setfood] = useState("pasta-and-seafood");
     const [searchParams] = useSearchParams();
     //change pasta eventually to a variable (buttons maybe..?)
-   
+    
     const URL2 = `https://nyc-restaurant-api.herokuapp.com/nyc-restaurants`
 
     useEffect(()=>{
         const foodToQuery = searchParams.get("food") || food;
         setfood(foodToQuery);
+        
         axios
             .get(`https://api.spoonacular.com/recipes/complexSearch?query=${foodToQuery}&apiKey=${SPOONACULAR_API_KEY}&instructionsRequired=true&addRecipeInformation=true`)
             .then((response)=>{
@@ -93,23 +94,26 @@ function Home(){
     + restaurantZipCode;
 
     return (
-        <div className="generalCard">
+        <div>
             <Header />
-            <FoodCard
-            recipeName = {recipeName}
-            recipeImage = {recipeImage}
-            // recipeInstructions = {recipeInstructions}
-            recipeTime = {recipeTime}
-            recipePrice = {recipePrice}
-            />
+            <div className="generalCard">
+            
+                <FoodCard
+                recipeName = {recipeName}
+                recipeImage = {recipeImage}
+                // recipeInstructions = {recipeInstructions}
+                recipeTime = {recipeTime}
+                recipePrice = {recipePrice}
+                />
 
-            <RestaurantCard
-            restaurantDish = {restaurantDish}
-            restaurantPricing = {restaurantPricing}
-            restaurantPlace = {restaurantPlace}
-            restaurantWeb = {restaurantWeb}
-            address = {address}
-            />
+                <RestaurantCard
+                restaurantDish = {restaurantDish}
+                restaurantPricing = {restaurantPricing}
+                restaurantPlace = {restaurantPlace}
+                restaurantWeb = {restaurantWeb}
+                address = {address}
+                />
+            </div>
         </div>
     )
 
