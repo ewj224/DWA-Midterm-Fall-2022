@@ -1,19 +1,25 @@
 import React, { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import { SPOONACULAR_API_KEY } from '../API_KEYS';
+import { useSearchParams } from 'react-router-dom';
 import FoodCard from "../components/FoodCard";
 import RestaurantCard from "../components/RestaurantCard";
+import Header from "../components/Header";
 
 function Home(){
     const [foodData, setFoodData] = useState([]);
     const [restaurantData, setRestaurantData] = useState([]);
+    const [food, setfood] = useState("pasta-and-seafood");
+    const [searchParams] = useSearchParams();
     //change pasta eventually to a variable (buttons maybe..?)
-    const URL = `https://api.spoonacular.com/recipes/complexSearch?query=blueberry-pancake&apiKey=${SPOONACULAR_API_KEY}&instructionsRequired=true&addRecipeInformation=true`
+   
     const URL2 = `https://nyc-restaurant-api.herokuapp.com/nyc-restaurants`
 
     useEffect(()=>{
+        const foodToQuery = searchParams.get("food") || food;
+        setfood(foodToQuery);
         axios
-            .get(URL)
+            .get(`https://api.spoonacular.com/recipes/complexSearch?query=${foodToQuery}&apiKey=${SPOONACULAR_API_KEY}&instructionsRequired=true&addRecipeInformation=true`)
             .then((response)=>{
                 setFoodData(response.data);
                 //DELETE LATER
@@ -24,7 +30,7 @@ function Home(){
                 setFoodData([]);
             });
     }, []);
-
+    
     useEffect(()=>{
         axios
             .get(URL2)
@@ -88,6 +94,7 @@ function Home(){
 
     return (
         <div className="generalCard">
+            <Header />
             <FoodCard
             recipeName = {recipeName}
             recipeImage = {recipeImage}

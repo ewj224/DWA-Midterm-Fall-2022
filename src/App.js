@@ -1,8 +1,7 @@
 import React from 'react';
 import{
   createBrowserRouter,
-  RouterProvider, 
-  Route
+  RouterProvider
 } from "react-router-dom";
 import './App.css';
 import Restaurant from './pages/options';

@@ -30,7 +30,6 @@
 
 
 .boxRestaurantCard, .boxFoodCard{
-    padding: 0;
     background-color:#fefae0;
     margin: 20px;
     padding: 20px;
@@ -42,7 +41,7 @@
 }
 
 .recipeTime{
-    margin-top:-30px;
+    margin-top: -30px;
 }
 
 img{
