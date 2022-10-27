@@ -4,7 +4,6 @@ import{
   RouterProvider
 } from "react-router-dom";
 import './App.css';
-import InstructionCard from './components/InstructionCard';
 import Home from './pages/home';
 
 

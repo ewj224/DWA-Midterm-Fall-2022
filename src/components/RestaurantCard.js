@@ -6,7 +6,7 @@ function RestaurantCard ({
     restaurantPricing,
     restaurantWeb,
     address
-}){console.log({restaurantWeb})
+}){
     restaurantWeb = "https://" + restaurantWeb;
     return (
         <div className = "restaurantCard">

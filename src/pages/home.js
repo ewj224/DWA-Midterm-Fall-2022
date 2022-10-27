@@ -13,8 +13,6 @@ function Home(){
     const [restaurantData, setRestaurantData] = useState([]);
     const [food, setfood] = useState("pasta-and-seafood");
     const [searchParams] = useSearchParams();
-    //change pasta eventually to a variable (buttons maybe..?)
-    
     const URL2 = `https://nyc-restaurant-api.herokuapp.com/nyc-restaurants`
 
 

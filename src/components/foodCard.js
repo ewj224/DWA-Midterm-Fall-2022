@@ -5,8 +5,6 @@ function FoodCard ({
     recipeTime,
     recipePrice,
     recipeImage,
-
-    // recipeInstructions
 }){
     return (
         <div className = "foodCard">

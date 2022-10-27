@@ -16,54 +16,57 @@ a:visited{
 
 .boxRestaurantCard, .boxFoodCard{
     background-color:#fefae0;
+    border-radius: 10%;
+    height: 220px;
     margin: 20px;
     padding: 20px;
-    height: 220px
 }
 
 
 .foodCard{
     background: #e9edc9;
     border: 5px solid #E0A96D;
+    border-radius: 10%;
     color: #201E20;
     height: 300px;
-    width: 48%;
     margin: auto;
-    max-width: 600px;
-    position: relative;
     margin-left: 130px;
     margin-top: 90px;
-
+    max-width: 600px;
+    position: relative;
+    width: 48%;
 }
 
 .generalCard{
-    display: flex;
     background-color:#fefae0;
+    display: flex;
 }
  
 .innerInstructions{
     background-color:#fefae0;
+    border-radius: 10%;
     margin: 20px;
     padding: 20px;
 
 }
 
 img{
-    position: relative;
     margin-left: 250px;
     margin-top: -160px;
+    position: relative;
 }
 
 .instructions{
     background: #e9edc9;
     border: 5px solid #E0A96D;
+    border-radius: 10%;
     color: #201E20;
-    width: 48%;
     margin: auto;
-    max-width: 600px;
-    position: relative;
     margin-left: 130px;
     margin-top: 30px;
+    max-width: 600px;
+    position: relative;
+    width: 48%;
 }
 
 
@@ -80,20 +83,21 @@ img{
  
 
 .recipeTime{
-     margin-top: -30px;
+    margin-top: -30px;
 }
  
 
 .restaurantCard{
     background: #faedcd;
     border: 5px solid #E0A96D;
+    border-radius: 10%;
     color: #201E20;
     height: 300px;
-    width: 48%;
-    max-width: 600px;
     margin: auto;
     margin-right: 130px;
     margin-top: 90px;
+    max-width: 600px;
+    width: 48%;
 }
 
 header{
