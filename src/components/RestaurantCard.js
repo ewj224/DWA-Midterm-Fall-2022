@@ -6,7 +6,8 @@ function RestaurantCard ({
     restaurantPricing,
     restaurantWeb,
     address
-}){
+}){console.log({restaurantWeb})
+    restaurantWeb = "https://" + restaurantWeb;
     return (
         <div className = "restaurantCard">
             <div className = "boxRestaurantCard">
@@ -14,12 +15,14 @@ function RestaurantCard ({
                 <h2>Name: {restaurantDish}</h2>
                 <p>Place: {restaurantPlace}</p>
                 <p>Price: {restaurantPricing}</p>
-                {/* <p>{restaurantWeb}</p> */}
+                <p className="link">  
+                    <a href={restaurantWeb}>Link</a>
+                </p>
                 <p>Address: {address}</p>
             </div>
         </div>
     )
-
+    
 }
 
 export default RestaurantCard;
