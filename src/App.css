@@ -1,10 +1,27 @@
-.generalCard{
-    display: flex;
-    background-color:#fefae0;
+* {background-color: #fefae0;}
+
+a:link{
+    text-decoration:none;
+    color: #A6AE8E;
 }
 
-* {background-color: #fefae0;}
- 
+a:visited{
+    text-decoration: none;
+    color: #A6AE8E;
+}
+
+.address{
+    margin-top: 110px;
+}
+
+.boxRestaurantCard, .boxFoodCard{
+    background-color:#fefae0;
+    margin: 20px;
+    padding: 20px;
+    height: 220px
+}
+
+
 .foodCard{
     background: #e9edc9;
     border: 5px solid #E0A96D;
@@ -19,57 +36,22 @@
 
 }
 
-.restaurantCard{
-    background: #faedcd;
-    border: 5px solid #E0A96D;
-    color: #201E20;
-    height: 300px;
-    width: 48%;
-    max-width: 600px;
-    margin: auto;
-    margin-right: 130px;
-    margin-top: 90px;
+.generalCard{
+    display: flex;
+    background-color:#fefae0;
 }
-
-
-.boxRestaurantCard, .boxFoodCard{
+ 
+.innerInstructions{
     background-color:#fefae0;
     margin: 20px;
     padding: 20px;
-    height: 220px
-}
 
-.recipeName{
-   max-width: 250px;
-}
-
-.recipeTime{
-    margin-top: -30px;
 }
 
 img{
     position: relative;
     margin-left: 250px;
     margin-top: -160px;
-}
-
-header{
-    align-self: center;
-    display: flex;
-    font-size: 20px;
-    justify-content: space-evenly;
-    margin-top: 80px;
-    text-align: center;
-}
-
-a:link{
-    text-decoration:none;
-    color: #A6AE8E;
-}
-
-a:visited{
-    text-decoration: none;
-    color: #A6AE8E;
 }
 
 .instructions{
@@ -84,12 +66,6 @@ a:visited{
     margin-top: 30px;
 }
 
-.innerInstructions{
-    background-color:#fefae0;
-    margin: 20px;
-    padding: 20px;
-
-}
 
 .link{
     font-size: 25px;
@@ -98,6 +74,33 @@ a:visited{
     margin-top: -150px;
 }
 
-.address{
-    margin-top: 110px;
+.recipeName{
+    max-width: 250px; 
+}
+ 
+
+.recipeTime{
+     margin-top: -30px;
+}
+ 
+
+.restaurantCard{
+    background: #faedcd;
+    border: 5px solid #E0A96D;
+    color: #201E20;
+    height: 300px;
+    width: 48%;
+    max-width: 600px;
+    margin: auto;
+    margin-right: 130px;
+    margin-top: 90px;
+}
+
+header{
+    align-self: center;
+    display: flex;
+    font-size: 20px;
+    justify-content: space-evenly;
+    margin-top: 80px;
+    text-align: center;
 }
