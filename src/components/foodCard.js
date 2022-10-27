@@ -4,7 +4,8 @@ function FoodCard ({
     recipeName,
     recipeTime,
     recipePrice,
-    recipeImage
+    recipeImage,
+
     // recipeInstructions
 }){
     return (

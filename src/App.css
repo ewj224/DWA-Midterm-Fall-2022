@@ -1,7 +1,10 @@
 .generalCard{
     display: flex;
+    background-color:#fefae0;
 }
 
+* {background-color: #fefae0;}
+ 
 .foodCard{
     background: #e9edc9;
     border: 5px solid #E0A96D;
@@ -59,5 +62,42 @@ header{
     text-align: center;
 }
 
-header a{
+a:link{
+    text-decoration:none;
+    color: #A6AE8E;
+}
+
+a:visited{
+    text-decoration: none;
+    color: #A6AE8E;
+}
+
+.instructions{
+    background: #e9edc9;
+    border: 5px solid #E0A96D;
+    color: #201E20;
+    width: 48%;
+    margin: auto;
+    max-width: 600px;
+    position: relative;
+    margin-left: 130px;
+    margin-top: 30px;
+}
+
+.innerInstructions{
+    background-color:#fefae0;
+    margin: 20px;
+    padding: 20px;
+
+}
+
+.link{
+    font-size: 25px;
+    font-weight: 700;
+    margin-left: 300px;
+    margin-top: -150px;
+}
+
+.address{
+    margin-top: 110px;
 }

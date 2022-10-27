@@ -154,21 +154,7 @@ function Home(){
             
             <Header />
             <div className="generalCard">
-                <InstructionCard 
-                recipeInstructions1 = {recipeInstructions1}
-                recipeInstructions2 = {recipeInstructions2}
-                recipeInstructions3 = {recipeInstructions3}
-                recipeInstructions4 = {recipeInstructions4}
-                recipeInstructions5 = {recipeInstructions5}
-                recipeInstructions6 = {recipeInstructions6}
-                recipeInstructions7 = {recipeInstructions7}
-                recipeInstructions8 = {recipeInstructions8}
-                recipeInstructions9 = {recipeInstructions9}
-                recipeInstructions10 = {recipeInstructions10}
-                recipeInstructions11 = {recipeInstructions11}
-                recipeInstructions12 = {recipeInstructions12}
-
-                />
+                
                 
                 <FoodCard
                 recipeName = {recipeName}
@@ -185,7 +171,23 @@ function Home(){
                 restaurantWeb = {restaurantWeb}
                 address = {address}
                 />
+                
             </div>
+            <InstructionCard 
+                recipeInstructions1 = {recipeInstructions1}
+                recipeInstructions2 = {recipeInstructions2}
+                recipeInstructions3 = {recipeInstructions3}
+                recipeInstructions4 = {recipeInstructions4}
+                recipeInstructions5 = {recipeInstructions5}
+                recipeInstructions6 = {recipeInstructions6}
+                recipeInstructions7 = {recipeInstructions7}
+                recipeInstructions8 = {recipeInstructions8}
+                recipeInstructions9 = {recipeInstructions9}
+                recipeInstructions10 = {recipeInstructions10}
+                recipeInstructions11 = {recipeInstructions11}
+                recipeInstructions12 = {recipeInstructions12}
+
+                />
         </div>
     )
 

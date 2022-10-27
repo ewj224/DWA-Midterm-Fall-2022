@@ -17,19 +17,21 @@ function InstructionCard({
 
 }){
     return(
-        <div>
-            <p>{recipeInstructions1}</p>
-            <p>{recipeInstructions2}</p>
-            <p>{recipeInstructions3}</p>
-            <p>{recipeInstructions4}</p>
-            <p>{recipeInstructions5}</p>
-            <p>{recipeInstructions6}</p>
-            <p>{recipeInstructions7}</p>
-            <p>{recipeInstructions8}</p>
-            <p>{recipeInstructions9}</p>
-            <p>{recipeInstructions10}</p>
-            <p>{recipeInstructions11}</p>
-            <p>{recipeInstructions12}</p>
+        <div className = "instructions">
+            <div className="innerInstructions">
+                <p>{recipeInstructions1}</p>
+                <p>{recipeInstructions2}</p>
+                <p>{recipeInstructions3}</p>
+                <p>{recipeInstructions4}</p>
+                <p>{recipeInstructions5}</p>
+                <p>{recipeInstructions6}</p>
+                <p>{recipeInstructions7}</p>
+                <p>{recipeInstructions8}</p>
+                <p>{recipeInstructions9}</p>
+                <p>{recipeInstructions10}</p>
+                <p>{recipeInstructions11}</p>
+                <p>{recipeInstructions12}</p>
+            </div>
         </div>
     )
 }

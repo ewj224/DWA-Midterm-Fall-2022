@@ -16,9 +16,9 @@ function RestaurantCard ({
                 <p>Place: {restaurantPlace}</p>
                 <p>Price: {restaurantPricing}</p>
                 <p className="link">  
-                    <a href={restaurantWeb}>Link</a>
+                    <a href={restaurantWeb} target="_blank" rel="noopener noreferrer"> Restaurant Link</a>
                 </p>
-                <p>Address: {address}</p>
+                <p className="address">Address: {address}</p>
             </div>
         </div>
     )
