@@ -6,6 +6,7 @@ import FoodCard from "../components/FoodCard";
 import RestaurantCard from "../components/RestaurantCard";
 import Header from "../components/Header";
 import InstructionCard from "../components/InstructionCard";
+let foodCounter = 0;
 
 function Home(){
     const [foodData, setFoodData] = useState([]);
@@ -13,7 +14,7 @@ function Home(){
     const [food, setfood] = useState("pasta-and-seafood");
     const [searchParams] = useSearchParams();
     //change pasta eventually to a variable (buttons maybe..?)
-    var foodCounter = 0;
+    
     const URL2 = `https://nyc-restaurant-api.herokuapp.com/nyc-restaurants`
 
 
@@ -26,9 +27,6 @@ function Home(){
         axios
             .get(`https://api.spoonacular.com/recipes/complexSearch?query=${foodToQuery}&apiKey=${SPOONACULAR_API_KEY}&instructionsRequired=true&addRecipeInformation=true`)
             .then((response)=>{
-                setFoodData(response.data);
-                //DELETE LATER
-                console.log({response});
                 if (foodToQuery === "mac-and-cheese"){
                     foodCounter = 2;
                 } else if (foodToQuery === "ramen"){
@@ -38,6 +36,10 @@ function Home(){
                 } else if (foodToQuery === "street-tacos"){
                     foodCounter = 4;
                 }
+                setFoodData(response.data);
+                //DELETE LATER
+                console.log({response});
+                
             })
             .catch((error)=>{
                 console.warn("error", error);
@@ -73,6 +75,8 @@ function Home(){
         recipeInstructions8, 
         recipeInstructions9,         
         recipeInstructions10, 
+        recipeInstructions11,
+        recipeInstructions12,
         recipeTime, 
         recipePrice, 
         recipeImage 
@@ -90,6 +94,9 @@ function Home(){
         const foodMain10 = foodMain2.steps && foodMain2.steps[7] || {}
         const foodMain11 = foodMain2.steps && foodMain2.steps[8] || {}
         const foodMain12 = foodMain2.steps && foodMain2.steps[9] || {}
+        const foodMain13 = foodMain2.steps && foodMain2.steps[10] || {}
+        const foodMain14 = foodMain2.steps && foodMain2.steps[11] || {}
+        console.log(foodMain2.steps)
         return{
             recipeName:foodMain.title,
             recipeImage:foodMain.image,
@@ -103,15 +110,16 @@ function Home(){
             recipeInstructions8:foodMain10.step,
             recipeInstructions9:foodMain11.step,
             recipeInstructions10:foodMain12.step,
+            recipeInstructions11:foodMain13.step,
+            recipeInstructions12:foodMain14.step,
             recipeTime: foodMain.readyInMinutes,
             recipePrice:Math.round(foodMain.pricePerServing)/100
         }
-    }, [foodData])
+    }, [foodData, foodCounter])
 
     //used to display restaurant information
     const { restaurantDish, restaurantPricing, restaurantPlace, restaurantWeb } = useMemo(()=>{
         const restaurantMain = restaurantData && restaurantData[foodCounter] || {}
-        console.log(foodCounter)
         return{
             restaurantDish: restaurantMain.name,
             restaurantPricing: restaurantMain.pricing,
@@ -124,7 +132,7 @@ function Home(){
     //restaurant address
     const { restaurantNumber, restaurantStreet, restaurantCity, restaurantState, restaurantZipCode } = useMemo(()=>{
         let restaurantMain2 = restaurantData && restaurantData[foodCounter] || {}
-        let restaurantMain3 = restaurantMain2.address && restaurantMain2.address[foodCounter] || {}
+        let restaurantMain3 = restaurantMain2.address && restaurantMain2.address[0] || {}
             return{
                 restaurantNumber: restaurantMain3.number,
                 restaurantStreet: restaurantMain3.street,
@@ -132,7 +140,7 @@ function Home(){
                 restaurantState: restaurantMain3.state,
                 restaurantZipCode: restaurantMain3.zipCode
             }
-    })
+    }, [restaurantData, foodCounter])
 
     const address = 
     restaurantNumber + " " 
@@ -143,10 +151,10 @@ function Home(){
 
     return (
         <div>
+            
             <Header />
             <div className="generalCard">
-
-                {/* <InstructionCard 
+                <InstructionCard 
                 recipeInstructions1 = {recipeInstructions1}
                 recipeInstructions2 = {recipeInstructions2}
                 recipeInstructions3 = {recipeInstructions3}
@@ -157,14 +165,18 @@ function Home(){
                 recipeInstructions8 = {recipeInstructions8}
                 recipeInstructions9 = {recipeInstructions9}
                 recipeInstructions10 = {recipeInstructions10}
-                /> */}
+                recipeInstructions11 = {recipeInstructions11}
+                recipeInstructions12 = {recipeInstructions12}
 
+                />
+                
                 <FoodCard
                 recipeName = {recipeName}
                 recipeImage = {recipeImage}
                 recipeTime = {recipeTime}
                 recipePrice = {recipePrice}
                 />
+
 
                 <RestaurantCard
                 restaurantDish = {restaurantDish}

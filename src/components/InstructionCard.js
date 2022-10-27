@@ -1,6 +1,7 @@
 import React from "react";
 
 function InstructionCard({
+
     recipeInstructions1,
     recipeInstructions2,
     recipeInstructions3,
@@ -10,7 +11,10 @@ function InstructionCard({
     recipeInstructions7,
     recipeInstructions8,
     recipeInstructions9,
-    recipeInstructions10
+    recipeInstructions10,
+    recipeInstructions11,
+    recipeInstructions12
+
 }){
     return(
         <div>
@@ -24,6 +28,8 @@ function InstructionCard({
             <p>{recipeInstructions8}</p>
             <p>{recipeInstructions9}</p>
             <p>{recipeInstructions10}</p>
+            <p>{recipeInstructions11}</p>
+            <p>{recipeInstructions12}</p>
         </div>
     )
 }
