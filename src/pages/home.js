@@ -13,7 +13,7 @@ function Home(){
     const [food, setfood] = useState("pasta-and-seafood");
     const [searchParams] = useSearchParams();
     //change pasta eventually to a variable (buttons maybe..?)
-    let foodCounter = 0;
+    var foodCounter = 0;
     const URL2 = `https://nyc-restaurant-api.herokuapp.com/nyc-restaurants`
 
 
@@ -30,10 +30,14 @@ function Home(){
                 //DELETE LATER
                 console.log({response});
                 if (foodToQuery === "mac-and-cheese"){
+                    foodCounter = 2;
+                } else if (foodToQuery === "ramen"){
                     foodCounter = 1;
-                }            
-                console.log(foodToQuery);
-                console.log(foodCounter);
+                } else if (foodToQuery === "pasta-and-seafood"){
+                    foodCounter = 0;
+                } else if (foodToQuery === "street-tacos"){
+                    foodCounter = 4;
+                }
             })
             .catch((error)=>{
                 console.warn("error", error);
@@ -45,6 +49,7 @@ function Home(){
         axios
             .get(URL2)
             .then((response2)=>{
+                foodCounter = 4;
                 setRestaurantData(response2.data);
                 //DELETE LATER
                 console.log({response2});
@@ -85,7 +90,6 @@ function Home(){
         const foodMain10 = foodMain2.steps && foodMain2.steps[7] || {}
         const foodMain11 = foodMain2.steps && foodMain2.steps[8] || {}
         const foodMain12 = foodMain2.steps && foodMain2.steps[9] || {}
-
         return{
             recipeName:foodMain.title,
             recipeImage:foodMain.image,
@@ -106,7 +110,8 @@ function Home(){
 
     //used to display restaurant information
     const { restaurantDish, restaurantPricing, restaurantPlace, restaurantWeb } = useMemo(()=>{
-        const restaurantMain = restaurantData && restaurantData[{foodCounter}] || {}
+        const restaurantMain = restaurantData && restaurantData[foodCounter] || {}
+        console.log(foodCounter)
         return{
             restaurantDish: restaurantMain.name,
             restaurantPricing: restaurantMain.pricing,
@@ -114,12 +119,12 @@ function Home(){
             restaurantWeb: restaurantMain.web
 
         }
-    }, [restaurantData])
+    }, [restaurantData, foodCounter])
 
     //restaurant address
     const { restaurantNumber, restaurantStreet, restaurantCity, restaurantState, restaurantZipCode } = useMemo(()=>{
-        let restaurantMain2 = restaurantData && restaurantData[{foodCounter}] || {}
-        let restaurantMain3 = restaurantMain2.address && restaurantMain2.address[{foodCounter}] || {}
+        let restaurantMain2 = restaurantData && restaurantData[foodCounter] || {}
+        let restaurantMain3 = restaurantMain2.address && restaurantMain2.address[foodCounter] || {}
             return{
                 restaurantNumber: restaurantMain3.number,
                 restaurantStreet: restaurantMain3.street,
