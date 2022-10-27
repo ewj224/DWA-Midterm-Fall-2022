@@ -4,7 +4,7 @@ import{
   RouterProvider
 } from "react-router-dom";
 import './App.css';
-import Restaurant from './pages/options';
+import InstructionCard from './components/InstructionCard';
 import Home from './pages/home';
 
 
@@ -13,11 +13,7 @@ const router = createBrowserRouter([
   {
   path: "/",
   element: <Home />
-  },
-  {
-    path:"/restaurant/:id",
-    element: <Restaurant />
-  },
+  }
 ]);
 
 function App() {
