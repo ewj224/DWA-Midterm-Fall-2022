@@ -19,6 +19,7 @@ function InstructionCard({
     return(
         <div className = "instructions">
             <div className="innerInstructions">
+                <h3>Recipe Instructions</h3>
                 <p>{recipeInstructions1}</p>
                 <p>{recipeInstructions2}</p>
                 <p>{recipeInstructions3}</p>

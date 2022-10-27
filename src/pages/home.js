@@ -37,8 +37,6 @@ function Home(){
                     foodCounter = 4;
                 }
                 setFoodData(response.data);
-                //DELETE LATER
-                console.log({response});
                 
             })
             .catch((error)=>{
@@ -53,8 +51,6 @@ function Home(){
             .then((response2)=>{
                 foodCounter = 4;
                 setRestaurantData(response2.data);
-                //DELETE LATER
-                console.log({response2});
             })
             .catch((error)=>{
                 console.warn("error", error);
@@ -96,7 +92,6 @@ function Home(){
         const foodMain12 = foodMain2.steps && foodMain2.steps[9] || {}
         const foodMain13 = foodMain2.steps && foodMain2.steps[10] || {}
         const foodMain14 = foodMain2.steps && foodMain2.steps[11] || {}
-        console.log(foodMain2.steps)
         return{
             recipeName:foodMain.title,
             recipeImage:foodMain.image,
